@@ -5,7 +5,11 @@ const ApiFeatures = require("../utils/apiFeatures");
 
 
 //create product --admin
-exports.createProduct = catchAsyncErrors(async (req, res) => {
+exports.createProduct = catchAsyncErrors(async (req, res, next) => {
+
+
+    req.body.user = req.user.id;
+
     const product = await Product.create(req.body);
 
     res.status(201).json({
@@ -29,6 +33,16 @@ exports.getAllProducts = catchAsyncErrors(async (req, res) => {
         success: true,
         products
     })
+});
+
+//get all product admin
+exports.getAdminProducts = catchAsyncErrors(async (req, res, next) => {
+    const products = await Product.find();
+
+    res.status(200).json({
+        success: true,
+        products,
+    });
 });
 
 
