@@ -63,7 +63,7 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     const resetToken = user.getResetPasswordToken();
     await user.save({ validateBeforeSave: false });
 
-    const resetPasswordUrl = `${req.protcol}://${req.get("host")}/password/reset/${resetToken}`
+    const resetPasswordUrl = `${req.protocol}://${req.get("host")}/password/reset/${resetToken}`
     const message = `Your password reset token is:- \n\n ${resetPasswordUrl} \n\nIf you have not requested this email then,please ignore it`;
 
 
@@ -86,4 +86,58 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
         await user.save({ validateBeforeSave: false });
         return next(new ErrorHander(error.message, 500))
     }
+})
+
+//reset password
+exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
+
+    //creating token hash
+    const resetPasswordToken = crypto
+        .createHash("sha256")
+        .update(req.params.token)
+        .digest("hex");
+
+    const user = await User.findOne({
+        resetPasswordToken,
+        resetPasswordExpire: { $gt: Date.now() },
+    })
+    if (!user) {
+        return next(new ErrorHander("reset password token is invalid or has expired!", 400));
+    }
+
+    if (req.body.password != req.body.confirmPassword) {
+        return next(new ErrorHander("passwords do not match", 400))
+    }
+    user.password = req.body.password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+
+    await user.save();
+    sendToken(user, 200, res);
+
+})
+
+
+//get user details
+exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user.id);
+    res.status(200).json({
+        success: true,
+        user
+    })
+})
+
+
+//update user password
+exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.user.id)("+password");
+
+    const isPasswordMatched = await user.comparePassword(password);
+    if (!isPasswordMatched) {
+        return next(new ErrorHander("invalid email or password", 401));
+    }
+    res.status(200).json({
+        success: true,
+        user
+    })
 })
