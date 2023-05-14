@@ -28,7 +28,7 @@ class ApiFeatures {
         queryStr = queryStr.replace(/\b(gt|lt|lte|gte)\b/g, key => `$${key}`);
 
 
-        this.query = this.query.find(JSON.parse(queryCopy));
+        this.query = this.query.find(JSON.parse(queryStr));
         return this;
     }
 
