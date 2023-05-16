@@ -130,11 +130,57 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
 
 //update user password
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.user.id)("+password");
 
-    const isPasswordMatched = await user.comparePassword(password);
+    const user = await User.findById(req.user.id).select("+password");
+
+    const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
     if (!isPasswordMatched) {
-        return next(new ErrorHander("invalid email or password", 401));
+        return next(new ErrorHander("old password is incorrect", 400));
+    }
+    if (req.body.newPassword !== req.body.confirmPassword) {
+        return next(new ErrorHander("password not matched!", 400));
+    }
+    user.password = req.body.newPassword;
+    await user.save()
+
+    sendToken(user, 200, res);
+})
+
+//update user profile
+//update user password
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+
+
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+
+    }
+    //we will add cloudinary later
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
+    });
+    res.status(200).json({
+        success: true
+    })
+})
+
+//get all user exports --admin
+exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
+    const users = await User.find();
+    res.status(200).json({
+        success: true,
+        users
+    })
+})
+
+//get single user details --admin
+exports.getSingleUserDetails = catchAsyncErrors(async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+    if (!user) {
+        return next(new ErrorHander(`user does not exist for this ${req.params.id}`))
     }
     res.status(200).json({
         success: true,
