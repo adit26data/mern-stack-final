@@ -147,7 +147,7 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 })
 
 //update user profile
-//update user password
+
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
 
@@ -187,3 +187,45 @@ exports.getSingleUserDetails = catchAsyncErrors(async (req, res, next) => {
         user
     })
 })
+
+
+//update user role --admin
+exports.updateRole = catchAsyncErrors(async (req, res, next) => {
+
+
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email,
+        role: req.body.role,
+
+    }
+    const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false,
+    });
+    res.status(200).json({
+        success: true
+    })
+})
+
+
+//delete user --admin
+exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
+
+    //remove cloudinary
+    const user = await User.findByIdAndUpdate(req.params.id);
+
+    if (!user) {
+        return next(new ErrorHander(`User does not exist with ${req.params.id}`))
+    }
+
+    await user.deleteOne()
+    res.status(200).json({
+        success: true,
+        message: "user deleted successfully"
+    })
+})
+
+
+
