@@ -9,10 +9,12 @@
     "axios": "^1.4.0",
     "overlay-navbar": "^1.2.3",
     "react": "^18.2.0",
+    "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.9.0",
+    "react-rating-stars-component": "^2.2.0",
     "react-redux": "^8.0.7",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
@@ -45,5 +47,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://192.168.56.1:4000"
 }
