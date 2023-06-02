@@ -5,7 +5,7 @@ import { FaUserAlt } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
 import { MdAddShoppingCart } from "react-icons/md";
 const options = {
-    burgerColor: "white",
+    burgerColor: "grey",
     burgerColorHover: "black",
     logo,
     logoWidth: "30vmax",
