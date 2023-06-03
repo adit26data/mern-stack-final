@@ -1,4 +1,4 @@
-.LoginSignupContainer {
+.LoginSignUpContainer {
     width: 100vw;
     height: 100vh;
     max-width: 100%;
@@ -11,7 +11,7 @@
     left: 0;
 }
 
-.LoginSignupBox {
+.LoginSignUpBox {
     background-color: white;
     width: 25vw;
     height: 70vh;
@@ -35,11 +35,11 @@
 }
 
 .login_signUp_toggle>p:hover {
-    color: rgb(209, 37, 65);
+    color: tomato;
 }
 
-.LoginSignupBox>div>button {
-    background-color: rgb(209, 37, 65);
+.LoginSignUpBox>div>button {
+    background-color: tomato;
     height: 3px;
     width: 50%;
     border: none;
@@ -132,7 +132,7 @@
 .loginBtn,
 .signUpBtn {
     border: none;
-    background-color: rgb(209, 37, 65);
+    background-color: tomato;
     color: white;
     font: 300 0.9vmax "Roboto";
     width: 100%;
@@ -145,7 +145,7 @@
 }
 
 .loginBtn:hover,
-.signupBtn:hover {
+.signUpBtn:hover {
     background-color: rgb(179, 66, 46);
 }
 
@@ -166,11 +166,11 @@
 }
 
 @media screen and (max-width: 600px) {
-    .LoginSignupContainer {
+    .LoginSignUpContainer {
         background-color: white;
     }
 
-    .LoginSignupBox {
+    .LoginSignUpBox {
         width: 100vw;
         height: 95vh;
     }
@@ -214,7 +214,7 @@
     }
 
     .loginBtn,
-    .signupBtn {
+    .signUpBtn {
         font: 300 1.9vmax "Roboto";
         padding: 1.8vmax;
     }
