@@ -1,6 +1,7 @@
 import { load } from "webfontloader";
 import {
     LOGIN_FAIL, LOGIN_REQUEST, LOGIN_SUCCESS, LOGOUT_FAIL, LOGOUT_SUCCESS, REGISTER_USER_REQUEST, REGISTER_USER_FAIL, REGISTER_USER_SUCCESS
+    , CLEAR_ERRORS
 } from "../constants/userConstants";
 
 export const userReducer = (state = { user: {} }, action) => {

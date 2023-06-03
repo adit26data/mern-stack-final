@@ -2,11 +2,11 @@ import React, { Fragment, useEffect, useRef, useState } from 'react'
 import Loader from "../layout/Loader/Loader"
 import "./LoginSignup.css"
 import { Link } from "react-router-dom"
+import { login, register, clearErrors } from '../../actions/userAction'
 import { FaceOutlined, LockOpenOutlined, MailOutlineOutlined, MailOutlined } from '@mui/icons-material'
 import { useDispatch } from 'react-redux'
 import { useAlert } from 'react-alert'
 import { useSelector } from 'react-redux'
-import { clearErrors } from '../../actions/productAction'
 const LoginSignup = ({ history, location }) => {
     const dispatch = useDispatch();
     const alert = useAlert();
@@ -66,7 +66,7 @@ const LoginSignup = ({ history, location }) => {
             dispatch(clearErrors());
         }
         if (isAuthenticated) {
-            history.pushState(redirect);
+            history.push(redirect);
         }
     }, [dispatch, error, alert, history, isAuthenticated, redirect])
 
