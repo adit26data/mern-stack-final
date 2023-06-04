@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react'
 import "./Header.css"
+import Backdrop from '@mui/material/Backdrop';
 import { SpeedDial, SpeedDialAction } from '@mui/material'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PersonIcon from '@mui/icons-material/Person';
@@ -8,7 +9,7 @@ import ListAltIcon from '@mui/icons-material/ListAlt';
 import { useHistory } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
-
+import { logout } from '../../../actions/userAction';
 function UserOptions({ user }) {
     const history = useHistory();
     const alert = useAlert();
@@ -39,19 +40,22 @@ function UserOptions({ user }) {
         history.push("/cart");
     }
     function logoutUser() {
-        // dispatch(logout());
+        dispatch(logout());
         alert.success("Logout Successfully");
     }
 
     const [open, setOpen] = useState();
     return (
         <Fragment>
+            <Backdrop open={open} style={{ zIndex: "10" }} />
             <SpeedDial
                 ariaLabel='SpeedDial tooltop example'
                 onClose={() => setOpen(false)}
                 onOpen={() => setOpen(true)}
                 open={open}
                 direction='down'
+                className='speedDial'
+                style={{ zIndex: "11" }}
                 icon={
                     <img className='speedDialIcon'
                         src={user.avatar.url ? user.avatar.url : "/Profile.png"}
