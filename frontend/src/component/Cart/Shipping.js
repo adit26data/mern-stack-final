@@ -12,6 +12,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import TransferWithinAStationIcon from "@mui/icons-material/TransferWithinAStation";
 import { Country, State } from "country-state-city"
 import { useAlert } from 'react-alert'
+import CheckoutSteps from "./CheckoutSteps"
 function Shipping({ history }) {
     const dispatch = useDispatch();
     const alert = useAlert();
@@ -40,6 +41,8 @@ function Shipping({ history }) {
 
     return (
         <Fragment>
+            <MetaData title="Shipping --INFO" />
+            <CheckoutSteps activeStep={0} />
             <div className='shippingContainer'>
                 <div className='shippingBox'>
                     <h2 className='shippingHeading'>Shipping Details</h2>

@@ -1,0 +1,8 @@
+@media screen and (max-width:600px) {
+    .menuBurger {
+        position: relative;
+        top: 0vmax;
+        left: 0vmax;
+        position: fixed;
+    }
+}

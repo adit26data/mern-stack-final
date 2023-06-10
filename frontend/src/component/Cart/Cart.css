@@ -141,6 +141,7 @@
         width: 100%;
         font: 300 1.7vmax "Roboto";
         grid-template-columns: 3fr 1fr 1fr;
+        visibility: hidden
     }
 
     .cartContainer {

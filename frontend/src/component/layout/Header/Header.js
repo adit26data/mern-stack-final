@@ -1,7 +1,7 @@
 import React from 'react'
 import { ReactNavbar } from "overlay-navbar";
 import logo from '../../../images/logo.png';
-
+import "./Header2.css"
 import { FaUserAlt } from "react-icons/fa";
 import { MdSearch } from "react-icons/md";
 import { MdAddShoppingCart } from "react-icons/md";
