@@ -2,7 +2,8 @@ import './App.css';
 import Header from './component/layout/Header/Header.js'
 import { BrowserRouter as Router, Route } from "react-router-dom"
 import WebFont from 'webfontloader';
-import React from 'react';
+import React, { useState } from 'react';
+import axios from "axios"
 import Footer from './component/layout/Footer/Footer.js'
 import Home from "./component/Home/Home.js"
 import ProductDetails from './component/Product/ProductDetails.js';
@@ -22,9 +23,18 @@ import ResetPassword from './component/User/ResetPassword';
 import Cart from "./component/Cart/Cart"
 import Shipping from "./component/Cart/Shipping"
 import ConfirmOrder from './component/Cart/ConfirmOrder';
+import Payment from "./component/Cart/Payment"
 function App() {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
+
+  const [stripeApiKey, setStripeApiKey] = React.useState("");
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapikey");
+
+    setStripeApiKey(data.stripeApiKey);
+  }
+
   React.useEffect(() => {
 
     WebFont.load({
@@ -33,6 +43,8 @@ function App() {
       }
     });
     store.dispatch(loadUser());
+
+    getStripeApiKey();
   }, [])
 
   return (
@@ -53,6 +65,8 @@ function App() {
       <Route exact path="/cart" component={Cart} />
       <ProtectedRoute exact path="/shipping" component={Shipping} />
       <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
+      <ProtectedRoute exact path="/process/payment" component={Payment} />
+
       <Footer />
     </Router>
 
