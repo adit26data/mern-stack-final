@@ -8,18 +8,23 @@ This project contains all user functionality like user order, add to cart functi
 react, react-redux, react-router,react-router-dom,react-alert, react-icons, react-helmet, react-js-pagination, react-material-ui-carousel, react-rating-stars-component, redux-thunk, redux-devtools-extension, overlay-navbar,axios, mui-icons
 
 # for backend
-bcryptjs, body-parser,cookie-parser, jsonwebtoken, cloudinary, crypto, dotenv, mongoose, nodemailer, validator, nodemon, express, express-fileupload
+bcryptjs, body-parser,cookie-parser, jsonwebtoken, cloudinary, crypto, dotenv, mongoose, nodemailer, validator, nodemon, express, express-fileupload,proxy
 
 **the dependencies might conflict so try to use the stable release of each package or use --force to make them install without errors
 
 # In the project directory, you can run:
 
-# npm start
+# npm start on 3000 port
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in your browser.
 
 The page will reload when you make changes.
 You may also see any lint errors in the console.
+
+# npm run dev
+Runs app on the backend server
+http://localhost:4000 is the server route
+use proxy package to connect them
 
 # npm test
 Launches the test runner in the interactive watch mode.
