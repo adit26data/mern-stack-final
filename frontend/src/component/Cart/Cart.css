@@ -163,13 +163,10 @@
     }
 
     .cartSubtotal {
-        position: relative;
         padding: 1.5vmax;
         height: 20vmax;
         font: 300 2vmax "Roboto";
-        top: 100px;
-        right: 82px;
-        position: fixed;
+        visibility: hidden;
     }
 
     .cartGrossProfit {
