@@ -10,6 +10,7 @@ react, react-redux, react-router,react-router-dom,react-alert, react-icons, reac
 # for backend
 bcryptjs, body-parser,cookie-parser, jsonwebtoken, cloudinary, crypto, dotenv, mongoose, nodemailer, validator, nodemon, express, express-fileupload
 
+**the dependencies might conflict so try to use the stable release of each package or use --force to make them install without errors
 
 # In the project directory, you can run:
 
