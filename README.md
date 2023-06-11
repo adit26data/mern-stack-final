@@ -3,6 +3,11 @@
 This is a full stack project revolving around an Ecommerce Site that I have named Shopper.com-One stop destination for all your shoppping desires!
 This project contains all user functionality like user order, add to cart functions, review posting and shipping mechanism. This is a pet project I have made to learn and understand full stack in more depth.
 
+## Demo Video
+
+https://github.com/adit26data/mern-stack-final/assets/98691664/40c6200f-0aa6-4d42-a797-74584bf27bfb
+
+
 # Dependencies
 # for frontend
 react, react-redux, react-router,react-router-dom,react-alert, react-icons, react-helmet, react-js-pagination, react-material-ui-carousel, react-rating-stars-component, redux-thunk, redux-devtools-extension, overlay-navbar,axios, mui-icons
