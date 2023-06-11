@@ -1,24 +1,22 @@
-import React from 'react'
-import profilePng from "../../images/profilePng.webp"
-import ReactStars from 'react-rating-stars-component'
+import { Rating } from "@mui/material";
+import React from "react";
+import profilePng from "../../images/profilePng.webp";
 
-function ReviewCard({ review }) {
+const ReviewCard = ({ review }) => {
     const options = {
-        edit: false,
-        color: "rgba(20,20,20,0.1)",
-        activeColor: "red",
-        size: window.innerWidth < 600 ? 20 : 25,
         value: review.rating,
-        isHalf: true
+        readOnly: true,
+        precision: 0.5,
     };
-    return (
-        <div className='reviewCard'>
-            <img src={profilePng} alt="User">
-            </img>
-            <p>{review?.name}</p>
-            <ReactStars {...options} />
-            <span>{review?.comment}</span></div>
-    )
-}
 
-export default ReviewCard
+    return (
+        <div className="reviewCard">
+            <img src={profilePng} alt="User" />
+            <p>{review.name}</p>
+            <Rating {...options} />
+            <span className="reviewCardComment">{review.comment}</span>
+        </div>
+    );
+};
+
+export default ReviewCard;

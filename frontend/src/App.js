@@ -17,13 +17,18 @@ import { useSelector } from 'react-redux';
 import Profile from "./component/User/Profile.js"
 import ProtectedRoute from "./component/Route/ProtectedRoute"
 import UpdateProfile from "./component/User/UpdateProfile.js"
-import UpdatePassword from './component/User/UpdatePassword';
-import ForgotPassword from './component/User/ForgotPassword';
-import ResetPassword from './component/User/ResetPassword';
-import Cart from "./component/Cart/Cart"
-import Shipping from "./component/Cart/Shipping"
-import ConfirmOrder from './component/Cart/ConfirmOrder';
-import Payment from "./component/Cart/Payment"
+import UpdatePassword from './component/User/UpdatePassword.js';
+import ForgotPassword from './component/User/ForgotPassword.js';
+import ResetPassword from './component/User/ResetPassword.js';
+import Cart from "./component/Cart/Cart.js"
+import Shipping from "./component/Cart/Shipping.js"
+import ConfirmOrder from './component/Cart/ConfirmOrder.js';
+import Payment from "./component/Cart/Payment.js"
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
+import OrderSuccess from "./component/Cart/OrderSuccess.js"
+import MyOrders from "./component/Order/MyOrders.js";
+import OrderDetails from "./component/Order/OrderDetails.js";
 function App() {
 
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -65,8 +70,10 @@ function App() {
       <Route exact path="/cart" component={Cart} />
       <ProtectedRoute exact path="/shipping" component={Shipping} />
       <ProtectedRoute exact path="/order/confirm" component={ConfirmOrder} />
-      <ProtectedRoute exact path="/process/payment" component={Payment} />
-
+      {stripeApiKey && (<Elements stripe={loadStripe(stripeApiKey)}><ProtectedRoute exact path="/process/payment" component={Payment} /></Elements>)}
+      <ProtectedRoute exact path="/success" component={OrderSuccess} />
+      <ProtectedRoute exact path="/orders" component={MyOrders} />
+      <ProtectedRoute exact path="/order/:id" component={OrderDetails} />
       <Footer />
     </Router>
 
