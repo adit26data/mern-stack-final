@@ -54,7 +54,7 @@ const Dashboard = () => {
     };
 
     const doughnutState = {
-        labels: ["OutofStock", "InStock"],
+        labels: ["Out of Stock", "InStock"],
         datasets: [
             {
                 backgroundColor: ["#00A6B4", "#6800B4"],

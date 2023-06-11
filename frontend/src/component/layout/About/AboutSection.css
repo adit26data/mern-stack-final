@@ -10,8 +10,8 @@
 
 .aboutSectionGradient {
     background-image: linear-gradient(to bottom right,
-            rgb(78, 81, 255),
-            rgb(74, 137, 189));
+            rgb(237, 67, 101),
+            rgb(86, 36, 161));
 }
 
 .aboutSectionContainer {
@@ -30,8 +30,8 @@
 }
 
 .aboutSectionContainer>h1 {
-    font: 400 3vmax "Roboto";
-    color: tomato;
+    font: 400 3vmax "serif";
+    color: rgb(250, 42, 97);
     margin: 2vmax;
 }
 
@@ -51,7 +51,7 @@
 
 .aboutSectionContainer>div>div>p {
     color: rgba(0, 0, 0, 0.623);
-    font: 100 1vmax "Roboto";
+    font: 100 1vmax "Serif";
 }
 
 .aboutSectionContainer>div>div>button {
@@ -59,7 +59,7 @@
 }
 
 .aboutSectionContainer>div>div>span {
-    font: 100 1vmax "Roboto";
+    font: 100 1vmax "Serif";
     color: rgba(0, 0, 0, 0.616);
     text-align: center;
     width: 80%;
@@ -71,7 +71,7 @@
 
 .aboutSectionContainer2>h2 {
     color: rgba(0, 0, 0, 0.623);
-    font: 100 2vmax "Roboto";
+    font: 100 2vmax "Serif";
     margin: 2vmax;
 }
 
@@ -93,16 +93,16 @@
     }
 
     .aboutSectionContainer>h1 {
-        font: 400 5vmax "Roboto";
+        font: 400 5vmax "Serif";
         margin: 3vmax;
     }
 
     .aboutSectionContainer>div>div>p {
-        font: 100 2vmax "Roboto";
+        font: 100 2vmax "Serif";
     }
 
     .aboutSectionContainer>div>div>span {
-        font: 100 1.4vmax "Roboto";
+        font: 100 1.4vmax "Serif";
         width: 70%;
     }
 
@@ -111,7 +111,7 @@
     }
 
     .aboutSectionContainer2>h2 {
-        font: 100 3vmax "Roboto";
+        font: 100 3vmax "Serif";
         margin: 2vmax;
     }
 
