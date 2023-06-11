@@ -54,7 +54,7 @@ const Dashboard = () => {
     };
 
     const doughnutState = {
-        labels: ["Out of Stock", "InStock"],
+        labels: ["OutofStock", "InStock"],
         datasets: [
             {
                 backgroundColor: ["#00A6B4", "#6800B4"],
@@ -97,7 +97,6 @@ const Dashboard = () => {
                 <div className="lineChart">
                     <Line data={lineState} />
                 </div>
-
                 <div className="doughnutChart">
                     <Doughnut data={doughnutState} />
                 </div>

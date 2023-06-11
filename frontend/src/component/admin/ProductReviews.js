@@ -86,7 +86,7 @@ const ProductReviews = ({ history }) => {
             flex: 0.4,
 
             cellClassName: (params) => {
-                return params.getValue(params.id, "rating") >= 3
+                return params.row.rating >= 3
                     ? "greenColor"
                     : "redColor";
             },
@@ -104,7 +104,7 @@ const ProductReviews = ({ history }) => {
                     <Fragment>
                         <Button
                             onClick={() =>
-                                deleteReviewHandler(params.getValue(params.id, "id"))
+                                deleteReviewHandler(params.row.id)
                             }
                         >
                             <DeleteIcon />

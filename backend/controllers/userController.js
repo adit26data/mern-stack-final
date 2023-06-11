@@ -233,6 +233,7 @@ exports.updateRole = catchAsyncErrors(async (req, res, next) => {
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 
     //remove cloudinary
+    await cloudinary.v2.uploader.destroy(imageId);
     const user = await User.findByIdAndUpdate(req.params.id);
 
     if (!user) {
