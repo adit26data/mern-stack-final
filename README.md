@@ -10,7 +10,7 @@ https://github.com/adit26data/mern-stack-final/assets/98691664/40c6200f-0aa6-4d4
 
 # Dependencies
 # for frontend
-react, react-redux, react-router,react-router-dom,react-alert, react-icons, react-helmet, react-js-pagination, react-material-ui-carousel, react-rating-stars-component, redux-thunk, redux-devtools-extension, overlay-navbar,axios, mui-icons
+react, react-redux, react-router,react-router-dom,react-alert, react-icons, react-helmet, react-js-pagination, react-material-ui-carousel, react-rating-stars-component, redux-thunk, redux-devtools-extension, overlay-navbar,axios, mui-icons-material, react-chartjs-2, charts.js, @mui/lab, system, material,styles, emotion, stripe-js,react-stripe-js, react-scripts, react-icons, 
 
 # for backend
 bcryptjs, body-parser,cookie-parser, jsonwebtoken, cloudinary, crypto, dotenv, mongoose, nodemailer, validator, nodemon, express, express-fileupload,proxy
