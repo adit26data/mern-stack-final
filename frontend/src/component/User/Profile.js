@@ -23,7 +23,7 @@ const Profile = ({ history }) => {
                     <div className="profileContainer">
                         <div>
                             <h1>My Profile</h1>
-                            <img src={user.avatar.url ? user.avatar.url : "/Profile.png"} alt={user.name} />
+                            <img src={user.avatar.url ? user.avatar.url : "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"} alt={user.name} />
                             <Link to="/me/update">Edit Profile</Link>
                         </div>
                         <div>
